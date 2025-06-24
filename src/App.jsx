@@ -1,7 +1,6 @@
 import { useState } from "react";
 import FileUpload from "./components/FileUpload";
 import Header from "./components/Header";
-import dummyData from "./dummy_data.json";
 import PairPercentage from "./components/PairPercentage";
 import StatisticHeader from "./components/StatisticHeader";
 import LongShortPair from "./components/LongShortPair";
@@ -12,7 +11,7 @@ import Datatable from "./components/Datatable";
 function App() {
   const [isCent, setIsCent] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState(dummyData);
+  const [data, setData] = useState([]);
 
   const resetState = () => {
     setIsCent(false);
