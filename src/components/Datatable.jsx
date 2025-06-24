@@ -4,21 +4,25 @@ import 'moment/locale/id'
 
 moment.locale('id')
 
+function Header({name, center = true, className}) {
+    return <b className={`text-sm ${center ? 'text-center': ''} ${className}`}>{name}</b>
+}
+
 function Datatable({ data, isCent }) {
     const columns = [
         {
-            name: 'Pair',
+            name: <Header name={'Pair'} />,
             selector: (row) => row.symbol,
             sortable: true,
             format: (row) => row.symbol.replace(/[^A-Z]/g, ''),
         },
         {
-            name: 'Lot',
+            name: <Header name={'Lot'} />,
             selector: (row) => row.lots,
             sortable: true,
         },
         {
-            name: 'Profit',
+            name: <Header name={'Profit'} />,
             selector: (row) =>
                 Object.entries(row).find(([key]) =>
                     key.includes('profit_us')
@@ -61,12 +65,11 @@ function Datatable({ data, isCent }) {
             ],
         },
         {
-            name: 'Komisi',
+            name: <Header name="Komisi" /> ,
             selector: (row) =>
                 Object.entries(row).find(([key]) =>
                     key.includes('commission_us')
                 )?.[1],
-            sortable: true,
             format: (row) => {
                 let value = Object.entries(row).find(([key]) =>
                     key.includes('commission_us')
@@ -78,12 +81,11 @@ function Datatable({ data, isCent }) {
             },
         },
         {
-            name: 'Swap',
+            name: <Header name="Swap" />,
             selector: (row) =>
                 Object.entries(row).find(([key]) =>
                     key.includes('swap_us')
                 )?.[1],
-            sortable: true,
             format: (row) => {
                 let value = Object.entries(row).find(([key]) =>
                     key.includes('swap_us')
@@ -95,7 +97,7 @@ function Datatable({ data, isCent }) {
             },
         },
         {
-            name: 'Tipe',
+            name: <Header name="Tipe" />,
             selector: (row) => row.type,
             sortable: true,
             conditionalCellStyles: [
@@ -120,25 +122,27 @@ function Datatable({ data, isCent }) {
             ],
         },
         {
-            name: 'TP',
+            name: <Header name="TP" />,
             selector: (row) => row.take_profit,
             format: (row) => row.take_profit || '-',
         },
         {
-            name: 'SL',
+            name: <Header name="SL" />,
             selector: (row) => row.stop_loss,
             format: (row) => row.stop_loss || '-',
         },
         {
-            name: 'Diutup Oleh',
+            name: <Header name="Ditutup Oleh" />,
             selector: (row) => row.close_reason,
+            width:'120px',
+            center:'true',
             format: (row) =>
                 row.close_reason != 'user'
                     ? row.close_reason.toUpperCase()
                     : row.close_reason,
         },
         {
-            name: 'Open Order',
+            name: <Header name="Open Order" />,
             width:'200px',
             center: 'true',
             selector: (row) => row.opening_time_utc,
@@ -154,7 +158,7 @@ function Datatable({ data, isCent }) {
             }
         },
         {
-            name: 'Close Order',
+            name: <Header name="Close Order" />,
             width:'200px',
             center: 'true',
             selector: (row) => row.closing_time_utc,
@@ -172,7 +176,17 @@ function Datatable({ data, isCent }) {
 
     return (
         <div className="p-10 w-full h-auto overflow-x-auto bg-white/50 border border-gray-200 rounded-lg shadow-sm align-center justify-center gap-10">
-            <DataTable columns={columns} data={data} pagination />
+            <DataTable 
+                columns={columns} 
+                data={data} 
+                pagination
+                paginationComponentOptions={{ 
+                        rowsPerPageText: "Baris Per Halaman",
+                        rangeSeparatorText: 'Dari'
+                    }} 
+                fixedHeader={true}
+                fixedHeaderScrollHeight="500px"
+                />
         </div>
     )
 }
