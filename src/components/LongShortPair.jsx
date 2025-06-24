@@ -34,7 +34,7 @@ function LongShortPair({ data }) {
     let dynamicHeight = (result.length * 30) + 50
     
     return (
-        <div style={{ minHeight: '500px', height: dynamicHeight + 'px' }} className="flex-1 bg-white/45 border border-gray-200 rounded-lg shadow-sm flex align-center justify-center gap-10">
+        <div style={{ minHeight: '500px', height: dynamicHeight + 'px' }} className="flex-1 min-w-[450px] w-full bg-white/45 border border-gray-200 rounded-lg shadow-sm flex align-center justify-center gap-10">
             <ResponsiveContainer width="100%" height="100%">
                 <BarChart
                     width={500}

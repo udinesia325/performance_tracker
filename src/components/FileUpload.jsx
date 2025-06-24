@@ -22,7 +22,7 @@ const FileUpload = ({data, setData, isLoading, setIsLoading}) => {
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
       <label
         htmlFor="uploadFile1"
-        className="bg-white text-slate-500 font-semibold text-base rounded max-w-md h-52 flex flex-col items-center justify-center cursor-pointer border-2 border-gray-300 border-dashed mx-auto p-3"
+        className="bg-white/45 text-slate-500 font-semibold text-base rounded max-w-md h-52 flex flex-col items-center justify-center cursor-pointer border-2 border-gray-300 border-dashed mx-auto p-3"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

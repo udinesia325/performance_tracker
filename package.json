@@ -13,12 +13,17 @@
     "@tailwindcss/cli": "^4.1.10",
     "@tailwindcss/postcss": "^4.1.10",
     "@tailwindcss/vite": "^4.1.10",
+    "moment": "^2.30.1",
     "papaparse": "^5.5.3",
     "postcss": "^8.5.6",
     "react": "^19.1.0",
+    "react-data-table-component": "^7.7.0",
+    "react-datepicker": "^8.4.0",
     "react-dom": "^19.1.0",
     "react-slot-counter": "^3.3.1",
     "recharts": "^2.15.3",
+    "save": "^2.9.0",
+    "styled-components": "^6.1.19",
     "tailwindcss": "^4.1.10"
   },
   "devDependencies": {

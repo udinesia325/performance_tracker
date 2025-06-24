@@ -13,7 +13,7 @@ function PairPercentage({ data }) {
         value: value,
     }))
     
-    const totalAll = result.reduce((acc, curr) => acc += curr.value,0)
+    const totalAll = data.length
 
     
     const COLORS = [
@@ -45,7 +45,7 @@ function PairPercentage({ data }) {
     }
 
     return (
-        <div className="w-[400px] h-auto bg-white/45 border border-gray-200 rounded-lg shadow-sm flex align-center justify-center gap-10">
+        <div className="w-full md:w-full lg:w-[400px] h-auto min-h-[400px] bg-white/45 border border-gray-200 rounded-lg shadow-sm flex align-center justify-center gap-10">
             <ResponsiveContainer width="100%" height="100%">
                 <PieChart width={400} height={400}>
                     <Pie
